@@ -2,6 +2,8 @@ const playButton = document.getElementById('playButton');
 
 const resultLabel = document.getElementById('result');
 
+const scoreLabel = document.getElementById('score');
+
 playButton.addEventListener('click', function () {
     const selectedValue = document.getElementById('toolSelect').value;
 
@@ -15,18 +17,21 @@ playButton.addEventListener('click', function () {
     if (selectedValue === 'Škare'){
         if (computerTool === 'Papir'){
             resultLabel.innerHTML = 'Computer has chosen ' + computerTool + '! You Win!';
+            incrementScore();
         } else {
             resultLabel.innerHTML = 'Computer has chosen ' + computerTool + '! You Lose!';
         }
     } else if (selectedValue === 'Papir') {
         if (computerTool === 'Kamen'){
             resultLabel.innerHTML = 'Computer has chosen ' + computerTool + '! You Win!';
+            incrementScore();
         } else {
             resultLabel.innerHTML = 'Computer has chosen ' + computerTool + '! You Lose!';
         }
     } else {
         if (computerTool === 'Škare'){
             resultLabel.innerHTML = 'Computer has chosen ' + computerTool + '! You Win!';
+            incrementScore();
         } else {
             resultLabel.innerHTML = 'Computer has chosen ' + computerTool + '! You Lose!';
         }
@@ -44,4 +49,13 @@ const getRandomTool = function () {
         case 3:
             return 'Papir';
     }
+}
+
+const incrementScore = function() {
+    let score = scoreLabel.innerHTML;
+    score = parseInt(score);
+
+    score++;
+
+    scoreLabel.innerHTML = score;
 }
